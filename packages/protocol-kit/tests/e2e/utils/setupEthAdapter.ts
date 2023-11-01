@@ -8,7 +8,7 @@ import {
 import { EthAdapter } from '@safe-global/safe-core-sdk-types'
 import dotenv from 'dotenv'
 import { ethers, web3 } from 'hardhat'
-import Web3 from 'web3'
+import { Web3 } from 'web3'
 import { HardhatEthersSigner } from '@nomicfoundation/hardhat-ethers/signers'
 
 dotenv.config()

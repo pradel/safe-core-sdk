@@ -6,8 +6,7 @@ import {
   GetContractProps,
   SafeTransactionEIP712Args
 } from '@safe-global/safe-core-sdk-types'
-import Web3 from 'web3'
-import { Transaction } from 'web3-core'
+import { Web3 } from 'web3'
 import { ContractOptions } from 'web3-eth-contract'
 import { AbiItem } from 'web3-utils'
 // TODO remove @types/web3 when migrating to web3@v4

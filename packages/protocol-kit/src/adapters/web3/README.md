@@ -7,7 +7,7 @@ Web3.js wrapper that contains some utilities and the Safe contracts types (gener
 If the app integrating the SDK is using `Web3`, create an instance of the `Web3Adapter`, where `signerAddress` is the Ethereum account we are connecting and the one who will sign the transactions.
 
 ```js
-import Web3 from 'web3'
+import { Web3 } from 'web3'
 import { Web3Adapter } from '@safe-global/protocol-kit'
 
 const provider = new Web3.providers.HttpProvider('http://localhost:8545')
