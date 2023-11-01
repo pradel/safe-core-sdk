@@ -8,11 +8,8 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 import { Web3 } from 'web3'
 import { ContractOptions } from 'web3-eth-contract'
+import type { JsonRpcResponse, Web3BaseProvider as Provider, Transaction } from 'web3-types'
 import { AbiItem } from 'web3-utils'
-// TODO remove @types/web3 when migrating to web3@v4
-// Deprecated https://www.npmjs.com/package/@types/web3?activeTab=readme
-// Migration guide https://docs.web3js.org/docs/guides/web3_migration_guide#types
-import type { JsonRPCResponse, Provider } from 'web3/providers'
 import CompatibilityFallbackHandlerWeb3Contract from './contracts/CompatibilityFallbackHandler/CompatibilityFallbackHandlerWeb3Contract'
 import CreateCallWeb3Contract from './contracts/CreateCall/CreateCallWeb3Contract'
 import MultiSendWeb3Contract from './contracts/MultiSend/MultiSendWeb3Contract'
@@ -291,8 +288,8 @@ class Web3Adapter implements EthAdapter {
     return new Promise((resolve, reject) => {
       const provider = this.#web3.currentProvider as Provider
       function callback(err: Error): void
-      function callback(err: null, val: JsonRPCResponse): void
-      function callback(err: null | Error, val?: JsonRPCResponse): void {
+      function callback(err: null, val: JsonRpcResponse): void
+      function callback(err: null | Error, val?: JsonRpcResponse): void {
         if (err) {
           reject(err)
           return
