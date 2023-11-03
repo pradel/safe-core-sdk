@@ -6,9 +6,10 @@ import {
   GetContractProps,
   SafeTransactionEIP712Args
 } from '@safe-global/safe-core-sdk-types'
-import { Web3, ContractAbi } from 'web3'
+import { Web3, ContractAbi, JsonRpcIdentifier, Web3APIMethod, Web3APISpec } from 'web3'
 import { ContractOptions } from 'web3-eth-contract'
 import { FMT_BYTES, FMT_NUMBER } from 'web3-types'
+import type { Web3BaseProvider as Provider, Transaction } from 'web3-types'
 import { AbiItem } from 'web3-utils/types'
 import CompatibilityFallbackHandlerWeb3Contract from './contracts/CompatibilityFallbackHandler/CompatibilityFallbackHandlerWeb3Contract'
 import CreateCallWeb3Contract from './contracts/CreateCall/CreateCallWeb3Contract'
@@ -287,20 +288,13 @@ class Web3Adapter implements EthAdapter {
     }
     return new Promise((resolve, reject) => {
       const provider = this.#web3.currentProvider as Provider
-      function callback(err: Error): void
-      function callback(err: null, val: JsonRpcResponse): void
-      function callback(err: null | Error, val?: JsonRpcResponse): void {
-        if (err) {
-          reject(err)
-          return
-        }
+      provider.request<Web3APIMethod<Web3APISpec>, string>(signedTypedData).then((val) => {
         if (val?.result == null) {
           reject(new Error("EIP-712 is not supported by user's wallet"))
           return
         }
         resolve(val.result)
-      }
-      provider.send(signedTypedData, callback)
+      })
     })
   }
 
