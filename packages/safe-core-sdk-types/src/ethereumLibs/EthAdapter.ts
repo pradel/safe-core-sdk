@@ -12,7 +12,7 @@ import {
   SafeVersion
 } from '@safe-global/safe-core-sdk-types/types'
 import { SingletonDeployment } from '@safe-global/safe-deployments'
-import { AbiItem } from 'web3-utils'
+import { AbiItem } from 'web3-utils/types'
 
 export interface EthAdapterTransaction {
   to: string

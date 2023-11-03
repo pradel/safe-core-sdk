@@ -6,7 +6,7 @@ import {
   SafeTransactionDataPartial,
   SafeVersion
 } from '@safe-global/safe-core-sdk-types'
-import { AbiItem } from 'web3-utils'
+import { AbiItem } from 'web3-utils/types'
 
 export interface SafeAccountConfig {
   owners: string[]
