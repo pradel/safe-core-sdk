@@ -8,6 +8,7 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 import { Web3, ContractAbi } from 'web3'
 import { ContractOptions } from 'web3-eth-contract'
+import { FMT_BYTES, FMT_NUMBER } from 'web3-types'
 import { AbiItem } from 'web3-utils/types'
 import CompatibilityFallbackHandlerWeb3Contract from './contracts/CompatibilityFallbackHandler/CompatibilityFallbackHandlerWeb3Contract'
 import CreateCallWeb3Contract from './contracts/CreateCall/CreateCallWeb3Contract'
@@ -64,10 +65,10 @@ class Web3Adapter implements EthAdapter {
   }
 
   async getNonce(address: string, defaultBlock?: string | number): Promise<number> {
-    const nonce = defaultBlock
-      ? await this.#web3.eth.getTransactionCount(address, defaultBlock)
-      : await this.#web3.eth.getTransactionCount(address)
-    return nonce
+    return this.#web3.eth.getTransactionCount(address, defaultBlock || undefined, {
+      number: FMT_NUMBER.NUMBER,
+      bytes: FMT_BYTES.HEX
+    })
   }
 
   async getChainId(): Promise<number> {
