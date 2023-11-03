@@ -256,7 +256,7 @@ class Web3Adapter implements EthAdapter {
     if (!this.#signerAddress) {
       throw new Error('EthAdapter must be initialized with a signer to use this method')
     }
-    return this.#web3.eth.sign(message, this.#signerAddress)
+    return this.#web3.eth.sign(message, this.#signerAddress) as Promise<string>
   }
 
   async signTypedData(
