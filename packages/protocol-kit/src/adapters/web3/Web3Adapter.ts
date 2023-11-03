@@ -6,7 +6,7 @@ import {
   GetContractProps,
   SafeTransactionEIP712Args
 } from '@safe-global/safe-core-sdk-types'
-import { Web3 } from 'web3'
+import { Web3, ContractAbi } from 'web3'
 import { ContractOptions } from 'web3-eth-contract'
 import { AbiItem } from 'web3-utils/types'
 import CompatibilityFallbackHandlerWeb3Contract from './contracts/CompatibilityFallbackHandler/CompatibilityFallbackHandlerWeb3Contract'
@@ -223,7 +223,7 @@ class Web3Adapter implements EthAdapter {
   }
 
   getContract(address: string, abi: AbiItem | AbiItem[], options?: ContractOptions): any {
-    return new this.#web3.eth.Contract(abi, address, options)
+    return new this.#web3.eth.Contract(abi as ContractAbi, address, options!)
   }
 
   async getContractCode(address: string, defaultBlock?: string | number): Promise<string> {
