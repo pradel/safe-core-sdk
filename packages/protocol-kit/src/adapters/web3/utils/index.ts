@@ -1,4 +1,5 @@
-import { PromiEvent, TransactionReceipt } from 'web3-core/types'
+import { PromiEvent } from 'web3-core/types'
+import { TransactionReceipt } from 'web3-types'
 import {
   Web3TransactionOptions,
   Web3TransactionResult

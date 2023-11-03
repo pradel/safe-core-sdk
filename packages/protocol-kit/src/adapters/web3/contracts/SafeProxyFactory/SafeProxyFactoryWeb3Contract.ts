@@ -5,7 +5,7 @@ import { Proxy_factory as SafeProxyFactory_V1_1_1 } from '@safe-global/protocol-
 import { Proxy_factory as SafeProxyFactory_V1_3_0 } from '@safe-global/protocol-kit/typechain/src/web3-v1/v1.3.0/Proxy_factory'
 import { Safe_proxy_factory as SafeProxyFactory_V1_4_1 } from '@safe-global/protocol-kit/typechain/src/web3-v1/v1.4.1/Safe_proxy_factory'
 import { SafeProxyFactoryContract } from '@safe-global/safe-core-sdk-types'
-import { TransactionReceipt } from 'web3-core/types'
+import { TransactionReceipt } from 'web3-types'
 
 export interface CreateProxyProps {
   safeSingletonAddress: string
