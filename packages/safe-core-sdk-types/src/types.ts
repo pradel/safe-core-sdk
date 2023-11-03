@@ -1,5 +1,5 @@
 import { ContractTransactionResponse } from 'ethers'
-import { PromiEvent } from 'web3-core/types'
+import { Web3PromiEvent, Web3EventMap } from 'web3-core'
 import { TransactionReceipt } from 'web3-types'
 
 export type SafeVersion = '1.4.1' | '1.3.0' | '1.2.0' | '1.1.1' | '1.0.0'
@@ -82,7 +82,7 @@ export interface BaseTransactionResult {
 }
 
 export interface TransactionResult extends BaseTransactionResult {
-  promiEvent?: PromiEvent<TransactionReceipt>
+  promiEvent?: Web3PromiEvent<TransactionReceipt, Web3EventMap>
   transactionResponse?: ContractTransactionResponse
   options?: TransactionOptions
 }

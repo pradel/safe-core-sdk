@@ -1,4 +1,4 @@
-import { PromiEvent } from 'web3-core/types'
+import { Web3PromiEvent } from 'web3-core'
 import { TransactionReceipt } from 'web3-types'
 import {
   Web3TransactionOptions,
@@ -10,7 +10,7 @@ export function sameString(str1: string, str2: string): boolean {
 }
 
 export async function toTxResult(
-  promiEvent: PromiEvent<TransactionReceipt>,
+  promiEvent: Web3PromiEvent<TransactionReceipt, { transactionHash: string }>,
   options?: Web3TransactionOptions
 ): Promise<Web3TransactionResult> {
   return new Promise((resolve, reject) =>

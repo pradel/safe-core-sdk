@@ -1,5 +1,5 @@
 import { BaseTransactionResult } from '@safe-global/safe-core-sdk-types'
-import { PromiEvent } from 'web3-core/types'
+import { Web3EventMap, Web3PromiEvent } from 'web3-core'
 import { TransactionReceipt } from 'web3-types'
 
 export interface Web3TransactionOptions {
@@ -12,6 +12,6 @@ export interface Web3TransactionOptions {
 }
 
 export interface Web3TransactionResult extends BaseTransactionResult {
-  promiEvent: PromiEvent<TransactionReceipt>
+  promiEvent: Web3PromiEvent<TransactionReceipt, Web3EventMap>
   options?: Web3TransactionOptions
 }
