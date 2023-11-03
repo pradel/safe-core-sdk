@@ -298,11 +298,8 @@ class Web3Adapter implements EthAdapter {
     })
   }
 
-  async estimateGas(
-    transaction: EthAdapterTransaction,
-    callback?: (error: Error, gas: number) => void
-  ): Promise<string> {
-    return (await this.#web3.eth.estimateGas(transaction, callback)).toString()
+  async estimateGas(transaction: EthAdapterTransaction): Promise<string> {
+    return (await this.#web3.eth.estimateGas(transaction)).toString()
   }
 
   call(transaction: EthAdapterTransaction, defaultBlock?: string | number): Promise<string> {
