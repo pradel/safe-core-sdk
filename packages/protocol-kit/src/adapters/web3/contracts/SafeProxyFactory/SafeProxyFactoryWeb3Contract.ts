@@ -65,7 +65,7 @@ class SafeProxyFactoryWeb3Contract implements SafeProxyFactoryContract {
     if (!proxyAddress) {
       throw new Error('SafeProxy was not deployed correctly')
     }
-    return proxyAddress
+    return proxyAddress as string
   }
 
   encode(methodName: string, params: any[]): string {

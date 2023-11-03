@@ -275,7 +275,7 @@ class Web3Adapter implements EthAdapter {
     }
     const jsonTypedData = JSON.stringify(typedData)
     const signedTypedData = {
-      jsonrpc: '2.0',
+      jsonrpc: '2.0' as JsonRpcIdentifier,
       method,
       params:
         methodVersion === 'v3' || methodVersion === 'v4'
