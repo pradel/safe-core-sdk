@@ -72,7 +72,7 @@ class Web3Adapter implements EthAdapter {
   }
 
   async getChainId(): Promise<number> {
-    return this.#web3.eth.getChainId()
+    return this.#web3.eth.getChainId({ number: FMT_NUMBER.NUMBER, bytes: FMT_BYTES.HEX })
   }
 
   getChecksummedAddress(address: string): string {
